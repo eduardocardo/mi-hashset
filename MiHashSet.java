@@ -1,4 +1,4 @@
-
+import java.util.HashSet;
 /**
  * Write a description of class MiHashSet here.
  * 
@@ -48,7 +48,7 @@ public class MiHashSet
 
         return encontrado;
     }
-    
+
     /**
      * Metodo que vacia el conjunto
      */
@@ -56,7 +56,7 @@ public class MiHashSet
     {
         conjunto = new int[0];
     }
-    
+
     /**
      * Metodo para comprobar si el elemento introducido por parametro esta en el conjunto
      * @param int elemento,elemento a comparar
@@ -74,7 +74,7 @@ public class MiHashSet
         }
         return encontrado;
     }
-    
+
     /**
      * Metodo que elimina del conjunto el elemento pasado por parametro
      * @param int elemento ,es el elemento que se quiere eliminar
@@ -100,15 +100,15 @@ public class MiHashSet
                 if(elemento == conjunto[i])   //si el parametro introducido coincide con un valor del conjunto
                 {
                     nuevoConjunto[i] = conjunto[i + 1];  //en la posicion correspondiente almacenamos el valor siguiente al del parametro
-                                                         //del array original
+                    //del array original
                 }
-                
+
             }
             conjunto = nuevoConjunto;
         }
         return existe;
     }
-    
+
     /**
      * Metodo que comprueba si el conjunto esta vacio
      * @return true si el conjunto esta vacio
@@ -122,7 +122,7 @@ public class MiHashSet
         }
         return vacio;
     }
-    
+
     /**
      * Metodo que devuelve el numero de elementos del conjunto
      */
@@ -130,7 +130,7 @@ public class MiHashSet
     {
         return conjunto.length;
     }
-    
+
     /**
      * Metodo que devuelve una cadena conteniendo todos los elementos del conjunto 
      * separados por comas y entre corchetes.
@@ -140,7 +140,7 @@ public class MiHashSet
         String cadena = "";
         if(conjunto.length !=0)
         {
-           cadena = "[" + conjunto[0]; 
+            cadena = "[" + conjunto[0]; 
         }
         for(int i = 1; i < conjunto.length; i++)
         {
@@ -148,5 +148,37 @@ public class MiHashSet
         }
         cadena += "]";
         return cadena;
+    }
+
+    /**
+     * Metodo que  devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca
+     * y falso en otro caso.
+     */
+    public boolean equals(MiHashSet otroConjunto)
+    {
+        boolean iguales = true;  //consideramos que ambos conjuntos son iguales
+        if(conjunto.length == otroConjunto.size())   //primero se comprueba si ambos conjuntos tienen el mismo tamaño
+        {
+            for(int i = 0; i < conjunto.length; i++)
+            {
+                if(otroConjunto.get(i) != conjunto[i])
+                {
+                    iguales = false;
+                }
+            }
+        }
+        else
+        {
+            iguales = false;
+        }
+        return iguales;
+    }
+    
+    /**
+     * 
+     */
+    public int get(int indice)
+    {
+        return conjunto[indice];
     }
 }
