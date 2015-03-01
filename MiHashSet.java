@@ -74,4 +74,36 @@ public class MiHashSet
         }
         return encontrado;
     }
+    
+    /**
+     * Metodo que elimina del conjunto el elemento pasado por parametro
+     * @param int elemento ,es el elemento que se quiere eliminar
+     * @return true si el elemento existia en el conjunto,false si no existia
+     */
+    public boolean remove(int elemento)
+    {
+        boolean existe = false;
+        for(int i = 0; i < conjunto.length; i++)
+        {
+            if(elemento == conjunto[i])
+            {
+                existe = true;
+            }
+        }
+        if(existe)
+        {
+            int[] nuevoConjunto = new int[conjunto.length - 1];
+            for(int i = 0; i < conjunto.length - 1; i++)
+            {
+                nuevoConjunto[i] = conjunto[i];
+                if(elemento == conjunto[i])
+                {
+                    nuevoConjunto[i] = conjunto[i + 1];
+                }
+                
+            }
+            conjunto = nuevoConjunto;
+        }
+        return existe;
+    }
 }
