@@ -82,28 +82,52 @@ public class MiHashSet
      */
     public boolean remove(int elemento)
     {
-        boolean existe = false;
+        //primero se comprueba si el elemento que se quiere eliminar existe en el conjunto
+        boolean existe = false;   //partimos de que no existe el elemento en el conjunto
         for(int i = 0; i < conjunto.length; i++)
         {
-            if(elemento == conjunto[i])
+            if(elemento == conjunto[i])   //si el elemento coincide con algun valor del conjunto
             {
                 existe = true;
             }
         }
-        if(existe)
+        if(existe)   //si el elemento a borrar si existe en el conjunto
         {
-            int[] nuevoConjunto = new int[conjunto.length - 1];
+            int[] nuevoConjunto = new int[conjunto.length - 1]; //se crea un array temporal con un tamaño igual al original pero reducido en 1
             for(int i = 0; i < conjunto.length - 1; i++)
             {
                 nuevoConjunto[i] = conjunto[i];
-                if(elemento == conjunto[i])
+                if(elemento == conjunto[i])   //si el parametro introducido coincide con un valor del conjunto
                 {
-                    nuevoConjunto[i] = conjunto[i + 1];
+                    nuevoConjunto[i] = conjunto[i + 1];  //en la posicion correspondiente almacenamos el valor siguiente al del parametro
+                                                         //del array original
                 }
                 
             }
             conjunto = nuevoConjunto;
         }
         return existe;
+    }
+    
+    /**
+     * Metodo que comprueba si el conjunto esta vacio
+     * @return true si el conjunto esta vacio
+     */
+    public boolean isEmpty()
+    {
+        boolean vacio = false;   //se considera que el conjunto no esta vacio
+        if(conjunto.length == 0)
+        {
+            vacio = true;
+        }
+        return vacio;
+    }
+    
+    /**
+     * Metodo que devuelve el numero de elementos del conjunto
+     */
+    public int size()
+    {
+        return conjunto.length;
     }
 }
