@@ -48,4 +48,12 @@ public class MiHashSet
 
         return encontrado;
     }
+    
+    /**
+     * Metodo que vacia el conjunto
+     */
+    public void clear()
+    {
+        conjunto = new int[0];
+    }
 }
