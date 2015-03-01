@@ -56,4 +56,22 @@ public class MiHashSet
     {
         conjunto = new int[0];
     }
+    
+    /**
+     * Metodo para comprobar si el elemento introducido por parametro esta en el conjunto
+     * @param int elemento,elemento a comparar
+     * @return true si el conjunto ya contiene ese elemento,false si no lo contiene
+     */
+    public boolean contains(int elemento)
+    {
+        boolean encontrado = false;       //consideramos que el elemento no esta contenido en el conjunto
+        for(int i = 0; i < conjunto.length; i++)
+        {
+            if(elemento == conjunto[i])   //si un valor del conjunto coincide con el parametro introducido
+            {
+                encontrado = true;
+            }
+        }
+        return encontrado;
+    }
 }
