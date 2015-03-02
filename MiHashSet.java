@@ -1,4 +1,4 @@
-import java.util.HashSet;
+
 /**
  * Write a description of class MiHashSet here.
  * 
@@ -135,12 +135,12 @@ public class MiHashSet
      * Metodo que devuelve una cadena conteniendo todos los elementos del conjunto 
      * separados por comas y entre corchetes.
      */
-    public String toString()
+    public String toString()  
     {
-        String cadena = "";
+        String cadena = "[";
         if(conjunto.length !=0)
         {
-            cadena = "[" + conjunto[0]; 
+            cadena = "" + conjunto[0]; 
         }
         for(int i = 1; i < conjunto.length; i++)
         {
@@ -161,24 +161,25 @@ public class MiHashSet
         {
             for(int i = 0; i < conjunto.length; i++)
             {
-                if(otroConjunto.get(i) != conjunto[i])
+                if(otroConjunto.contains(conjunto[i]))  //si un objeto del conjunto pasado por parametro no es igual al de conjunto 
+                                                         //a comparar
                 {
                     iguales = false;
                 }
             }
         }
-        else
+        else  //son de diferente tammaño
         {
             iguales = false;
         }
         return iguales;
     }
     
-    /**
-     * 
-     */
-    public int get(int indice)
-    {
-        return conjunto[indice];
-    }
+// //     /**
+// //      * Metodo que devuelve el valor correspondiente a un indice del conjunto
+// //      */
+// //     private int get(int indice)
+//     {
+//         return conjunto[indice];
+//     }
 }
